@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.lordicon.com/lordicon.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'bitter': ['Bitter', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <script src="./index.js" defer></script>
+    <script>
+        document.addEventListener("click", function(event) {
+            var portal = document.getElementById("yesBtnPortal");
+            if (!portal.contains(event.target)) {
+                portal.classList.add("show");
+            }
+        });
+    </script>
+</head>
+<body class="min-h-screen px-4 w-full bg-pink-200 flex flex-col gap-4 w-auto justify-center items-center">
+    <img width="25%" class="w-full md:w-auto" src="https://media.giphy.com/media/KMVcsX5EjDGDK/giphy.gif?cid=ecf05e47keo02ueusqz4i7e4tlaq7x3hc1kk0e17jr9hqd05&ep=v1_gifs_search&rid=giphy.gif&ct=g" alt="beast boy valentine GIF">
+    <h1 class="text-4xl text-center font-bitter bg-clip-text text-transparent bg-gradient-to-br from-[#C6335A] to-[#EEA3C3] font-semibold">Happy Valentine's Day</h1>
+    <p class="font-bitter text-2xl">Will you be my valentine?</p>
+    <div class="space-x-8">
+        <button id="yesBtn" onclick="triggerYesButton()" class="bg-green-500 text-white px-4 py-2 rounded-md font-bitter hover:bg-green-700 transition-all duration-300">Yes</button>
+        <button onclick="resizeYesButton()" class="bg-red-500 text-white px-4 py-2 rounded-md font-bitter hover:bg-red-700 transition-all duration-300">No</button>
+    </div>
+    <portal>
+        <div id="yesBtnPortal" class="hidden fixed top-0 left-0 w-full h-full bg-green-500 bg-opacity-50 flex flex-col justify-center items-center">
+            <button onclick="togglePortal()" class="absolute bg-black px-2 py-4 rounded-md top-80 right-64 text-white">&times;</button>
+            <div class="max-w-md mx-auto px-4 py-8 bg-white rounded-md shadow-md text-center">
+                <p class="text-black font-bitter text-8xl font-medium">I'm so happy you said yes</p>
+                <lord-icon
+                    src="https://cdn.lordicon.com/igciyimj.json"
+                    trigger="loop"
+                    delay="2000"
+                    style="width:250px;height:250px">
+                </lord-icon>
+            </div>
+        </div>
+    </portal>
+</body>
+</html>
